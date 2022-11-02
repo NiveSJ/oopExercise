@@ -7,12 +7,7 @@ public class Person {
     private String firstName;
     private String lastName;
 
-    static Map<Integer, Person> personMap = new HashMap();
-
-
-
-    List<Integer> bookIDs = new ArrayList<Integer>(); //Books lended to Person
-
+    List<Integer> bookIDs = new ArrayList<Integer>(); //Books lent to Person
 
 
     public Person(int personId, String firstName, String lastName) {
@@ -23,21 +18,33 @@ public class Person {
 
     }
 
-    public static void addMembers() {
-        Person person1 = new Person(100, "Jay", "solai");
-        Person person2 = new Person(101, "Nive", "solai");
-
-        personMap.put(100, person1);
-        personMap.put(101, person2);
+    public String getName(){
+        return firstName + " " + lastName;
     }
+
     public void loanBooks(Book book) {
+        bookIDs.add(book.getBookId());
+
+        if (book.isAvailable()){
+            book.setAvailable(false);
+            book.setPerson(this);
+        }
+        else {
+            System.out.println("Book " + book.getBookId() + " is not available");
+        }
+    }
+
+    public void displayBooks() {
+
+        System.out.println("Person Name: " + firstName + " " + lastName);
+        System.out.println("Books Lent: ");
+
+        for (int i : bookIDs) {
+            System.out.println("\t" + i);
+        }
 
 
     }
 
-    public String displayBooks() {
-
-
-    }
 
 }
