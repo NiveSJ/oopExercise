@@ -71,7 +71,7 @@ public class App {
             System.out.println("Book ID: " + entry.getKey());
             System.out.println("Book Name: " + entry.getValue().getTitle());
             System.out.println("Book Author: " + entry.getValue().getAuthor());
-            System.out.println("Book Name: " + entry.getValue().getPerson().getName());
+            System.out.println("Person Name: " + entry.getValue().getPerson().getName());
             System.out.println("========================================>");
         }
     }
