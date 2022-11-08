@@ -13,11 +13,11 @@ public class Book {
     private Person person;
 
 
-    public Book(int bookId, String title, String author, boolean available) {
+    public Book(int bookId, String title, String author) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
-        this.available = available;
+        this.available = true;
     }
 
     public boolean isAvailable() {
@@ -34,6 +34,11 @@ public class Book {
 
     public void setPerson(Person person) {
         this.person = person;
+        this.available = false;
+    }
+    public void returnbookPerson(Person person){
+        this.person = person;
+        this.available = true;
     }
 
     public int getBookId() {
@@ -60,5 +65,12 @@ public class Book {
         this.author = author;
     }
 
+
+    public String displayBookInfo(){
+        return bookId + " " + title + " " + available;
+    }
+    public String displayLanderInfo(){
+        return " "+ person.getName();
+    }
 
 }

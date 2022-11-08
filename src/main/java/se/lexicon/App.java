@@ -8,6 +8,41 @@ import java.util.Map;
  */
 public class App {
 
+
+    public static void main(String[] args) {
+        Book book1 = new Book(1001, "Distributed Systems", "Tanenbaum");
+        Book book2 = new Book(1002, "Introduction to Algorithms", "Cormen");
+        Book book3 = new Book(1003, "Operating System", "Silberschatz");
+
+        Person person1 = new Person(100, "Jay", "solai");
+        Person person2 = new Person(101, "Nive", "solai");
+
+        System.out.println(book1.displayBookInfo());
+        System.out.println(book2.displayBookInfo());
+        System.out.println(book3.displayBookInfo());
+
+        System.out.println("---------------------");
+        //book1.setPerson(person1);
+        person1.loanBooks(book1);
+        person1.loanBooks(book2);
+        System.out.println(book1.displayBookInfo());
+        System.out.println(book2.displayBookInfo());
+        System.out.println(book3.displayBookInfo());
+        System.out.println("##################Person 1 Borrowed books#################");
+        person1.displayBooks();
+        System.out.println("####Person1  returned books######### ");
+        person1.returnbook(book1);
+        person1.displayBooks();
+
+        System.out.println("########Person2 borrowed books########## ");
+        person2.loanBooks(book1);
+        person1.displayBooks();
+
+        person1.loanBooks(book1);
+
+    }
+
+    /*
     static Map<Integer, Person> personMap = new HashMap();
     static Map<Integer, Book> bookMap = new HashMap();
 
@@ -30,6 +65,7 @@ public class App {
     }
 
     public static void addBooks() {
+
         Book book1 = new Book(1001, "Distributed Systems", "Tanenbaum", true);
         Book book2 = new Book(1002, "Introduction to Algorithms", "Cormen", true);
         Book book3 = new Book(1003, "Operating System", "Silberschatz", true);
@@ -75,4 +111,6 @@ public class App {
             System.out.println("========================================>");
         }
     }
+
+     */
 }
